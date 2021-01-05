@@ -3,7 +3,7 @@ var https = require('https');
 var url = require('url');
 var util = require('util');
 var fs = require('fs');
-var cheerio = require('cheerio'); //npm install cheerio  
+var cheerio = require('cheerio'); //npm install cheerio
 
 // http.createServer(function(req, res) {
 //     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
