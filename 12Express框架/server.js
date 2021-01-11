@@ -10,7 +10,7 @@ app.use('/public', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: '/tmp/' }).array('image'));
 
-//对外提供了一个get请求  路径时 /index.html
+//对外提供了一个get请求  路径是 /index.html
 app.get('/index.html', function(req, res) {
     res.sendFile(__dirname + "/" + "index.html");
 })
@@ -36,11 +36,14 @@ app.post('/file_upload', function(req, res) {
     });
 })
 
-var server = app.listen(8081, function() {
+var server = app.listen(8081, function(err) {
+    if (err) {
+        console.log(err)
+        return;
+    }
+    var host = server.address().address
+    var port = server.address().port
 
-    // var host = server.address().address
-    // var port = server.address().port
-
-    console.log("应用实例，访问地址为 http://0.0.0.0")
+    console.log("应用实例，访问地址为 http://%s:%s", host, port)
 
 })
